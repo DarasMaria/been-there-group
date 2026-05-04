@@ -1,26 +1,345 @@
 @import "tailwindcss";
 
+@theme {
+  --color-bg: #FAFAF8;
+  --color-fg: #1A1A1A;
+  --color-primary: #2C2C2A;
+  --color-accent: #8B7355;
+  --color-accent-light: #A8926F;
+  --color-secondary: #E8E4DC;
+  --color-muted: #6B6560;
+  --color-border: #D8D4CC;
+  --color-surface: #F2F0EB;
+  --color-white: #FFFFFF;
+
+  --font-sans: var(--font-inter);
+  --font-serif: var(--font-cormorant);
+
+  --radius-sm: 2px;
+  --radius-md: 4px;
+  --radius-lg: 8px;
+
+  --spacing-section: 80px;
+}
+
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  --background: #FAFAF8;
+  --foreground: #1A1A1A;
 }
 
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+* {
+  box-sizing: border-box;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+html {
+  scroll-behavior: smooth;
 }
 
 body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  background-color: var(--color-bg);
+  color: var(--color-fg);
+  font-family: var(--font-sans), 'Inter', system-ui, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  line-height: 1.6;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-serif), 'Georgia', serif;
+  font-weight: 400;
+  line-height: 1.2;
+  letter-spacing: -0.01em;
+}
+
+.container {
+  max-width: 1280px;
+  margin-inline: auto;
+  padding-inline: 24px;
+}
+
+@media (min-width: 768px) {
+  .container {
+    padding-inline: 40px;
+  }
+}
+
+@media (min-width: 1024px) {
+  .container {
+    padding-inline: 60px;
+  }
+}
+
+.btn-primary {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background-color: var(--color-primary);
+  color: var(--color-white);
+  padding: 14px 28px;
+  font-size: 13px;
+  font-weight: 500;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  border: 1px solid var(--color-primary);
+  cursor: pointer;
+  transition: all 0.2s ease;
+  text-decoration: none;
+  font-family: var(--font-sans), system-ui, sans-serif;
+}
+
+.btn-primary:hover {
+  background-color: var(--color-accent);
+  border-color: var(--color-accent);
+}
+
+.btn-outline {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background-color: transparent;
+  color: var(--color-primary);
+  padding: 13px 27px;
+  font-size: 13px;
+  font-weight: 500;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  border: 1px solid var(--color-primary);
+  cursor: pointer;
+  transition: all 0.2s ease;
+  text-decoration: none;
+  font-family: var(--font-sans), system-ui, sans-serif;
+}
+
+.btn-outline:hover {
+  background-color: var(--color-primary);
+  color: var(--color-white);
+}
+
+.btn-ghost {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background-color: transparent;
+  color: var(--color-muted);
+  padding: 10px 0;
+  font-size: 13px;
+  font-weight: 400;
+  letter-spacing: 0.05em;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  text-decoration: none;
+  font-family: var(--font-sans), system-ui, sans-serif;
+  border: none;
+}
+
+.btn-ghost:hover {
+  color: var(--color-primary);
+}
+
+.section-label {
+  display: block;
+  font-size: 11px;
+  font-weight: 500;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: var(--color-accent);
+  margin-bottom: 12px;
+}
+
+.divider {
+  border: none;
+  border-top: 1px solid var(--color-border);
+}
+
+input, textarea, select {
+  font-family: var(--font-sans), system-ui, sans-serif;
+}
+
+.form-input {
+  width: 100%;
+  padding: 12px 16px;
+  border: 1px solid var(--color-border);
+  background-color: var(--color-white);
+  color: var(--color-fg);
+  font-size: 14px;
+  font-family: var(--font-sans), system-ui, sans-serif;
+  outline: none;
+  transition: border-color 0.2s ease;
+  appearance: none;
+}
+
+.form-input:focus {
+  border-color: var(--color-accent);
+}
+
+.form-label {
+  display: block;
+  font-size: 12px;
+  font-weight: 500;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--color-muted);
+  margin-bottom: 8px;
+}
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.tag {
+  display: inline-block;
+  padding: 4px 10px;
+  font-size: 11px;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  background-color: var(--color-secondary);
+  color: var(--color-muted);
+}
+
+.card-hover {
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.card-hover:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.08);
+}
+
+.image-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to top, rgba(0,0,0,0.4) 0%, transparent 60%);
+}
+
+/* ── Catalogue page – Floema-inspired ─────────────────────────── */
+
+/* Masonry columns layout — items flow top-to-bottom at natural heights */
+.catalogue-masonry {
+  columns: 2;
+  column-gap: 16px;
+}
+
+@media (min-width: 640px) {
+  .catalogue-masonry {
+    columns: 3;
+    column-gap: 20px;
+  }
+}
+
+@media (min-width: 1024px) {
+  .catalogue-masonry {
+    columns: 4;
+    column-gap: 28px;
+  }
+}
+
+.catalogue-masonry-item {
+  break-inside: avoid;
+  margin-bottom: 40px;
+}
+
+/* Card: product name fades to accent on hover */
+.catalogue-card-name {
+  color: var(--color-primary);
+  font-family: var(--font-serif), Georgia, serif;
+  font-size: 18px;
+  font-weight: 400;
+  line-height: 1.25;
+  text-decoration: none;
+  display: block;
+  transition: color 0.25s ease;
+}
+
+.catalogue-card:hover .catalogue-card-name {
+  color: var(--color-accent);
+}
+
+/* Card: image scales subtly on hover */
+.catalogue-img-wrap {
+  overflow: hidden;
+  display: block;
+}
+
+.catalogue-img-wrap img {
+  transition: transform 0.45s ease;
+}
+
+.catalogue-card:hover .catalogue-img-wrap img {
+  transform: scale(1.04);
+}
+
+/* Filter tiles row — single scrollable row, fills full width on desktop */
+.filter-tiles-row {
+  display: flex;
+  gap: 8px;
+  align-items: flex-start;
+  overflow-x: auto;
+  flex-wrap: nowrap;
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+  padding: 3px; /* gives the active box-shadow room to render without being clipped */
+  margin: -3px; /* cancel out the added padding so layout is unchanged */
+}
+
+.filter-tiles-row::-webkit-scrollbar {
+  display: none;
+}
+
+/* Filter tiles */
+.filter-tile {
+  display: flex;
+  flex-direction: column;
+  text-decoration: none;
+  flex: 0 0 120px;
+  min-width: 0;
+  box-shadow: 0 0 0 0px transparent;
+  transition: box-shadow 0.2s ease;
+}
+
+@media (min-width: 1024px) {
+  .filter-tile {
+    flex: 1 1 0;
+  }
+}
+
+.filter-tile.active {
+  box-shadow: 0 0 0 2px var(--color-accent);
+}
+
+.filter-tile-label {
+  padding: 8px 10px;
+  background-color: var(--color-surface);
+  transition: background-color 0.2s ease;
+}
+
+.filter-tile.active .filter-tile-label {
+  background-color: var(--color-accent);
+}
+
+.filter-tile-name {
+  display: block;
+  font-size: 11px;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  font-weight: 500;
+  color: var(--color-primary);
+  transition: color 0.2s ease;
+}
+
+.filter-tile.active .filter-tile-name {
+  color: #fff;
+}
+
+.filter-tile-count {
+  display: block;
+  font-size: 10px;
+  color: var(--color-muted);
+  margin-top: 1px;
+  transition: color 0.2s ease;
+}
+
+.filter-tile.active .filter-tile-count {
+  color: rgba(255, 255, 255, 0.7);
 }
