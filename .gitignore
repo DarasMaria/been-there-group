@@ -37,6 +37,9 @@ yarn-error.log*
 prisma/*.db
 prisma/*.db-journal
 
+# lock file — generated per-platform; let each environment resolve its own
+package-lock.json
+
 # vercel
 .vercel
 
