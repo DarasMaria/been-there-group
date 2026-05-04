@@ -26,7 +26,7 @@ const values = [
   {
     title: 'Transparent process',
     description:
-      'We don't publish prices online — because pricing depends on your specific event. What we do guarantee is a formal, itemised quote, clearly communicated and professionally delivered.',
+      "We don't publish prices online — because pricing depends on your specific event. What we do guarantee is a formal, itemised quote, clearly communicated and professionally delivered.",
   },
 ]
 

@@ -1,5 +1,3 @@
-'use client'
-
 import PageHero from '@/components/ui/PageHero'
 import Link from 'next/link'
 
@@ -125,16 +123,7 @@ export default function TermsPage() {
                   <a
                     key={s.title}
                     href={`#${s.title.toLowerCase().replace(/[^a-z0-9]+/g, '-')}`}
-                    style={{
-                      fontSize: '13px',
-                      color: '#6B6560',
-                      textDecoration: 'none',
-                      padding: '6px 0',
-                      borderBottom: '1px solid #F2F0EB',
-                      transition: 'color 0.2s',
-                    }}
-                    onMouseEnter={(e) => (e.currentTarget.style.color = '#2C2C2A')}
-                    onMouseLeave={(e) => (e.currentTarget.style.color = '#6B6560')}
+                    className="terms-nav-link"
                   >
                     {s.title}
                   </a>
@@ -200,6 +189,16 @@ export default function TermsPage() {
       </section>
 
       <style>{`
+        .terms-nav-link {
+          font-size: 13px;
+          color: #6B6560;
+          text-decoration: none;
+          padding: 6px 0;
+          border-bottom: 1px solid #F2F0EB;
+          transition: color 0.2s;
+          display: block;
+        }
+        .terms-nav-link:hover { color: #2C2C2A; }
         @media (max-width: 768px) {
           .terms-sidebar { display: none; }
         }
