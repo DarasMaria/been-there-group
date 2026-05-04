@@ -42,7 +42,7 @@ export default function Header() {
     >
       <div className="container">
         <div style={{ display: 'flex', alignItems: 'center', height: '72px' }}>
-          {/* Logo */}
+          {/* Logo — pinned left with fixed gap to nav */}
           <Link
             href="/"
             style={{
@@ -53,13 +53,15 @@ export default function Header() {
               color: '#2C2C2A',
               textDecoration: 'none',
               textTransform: 'uppercase',
+              flexShrink: 0,
+              marginRight: '48px',
             }}
           >
             Been There Group
           </Link>
 
-          {/* Desktop Nav */}
-          <nav style={{ flex: 1, display: 'flex', gap: '36px', alignItems: 'center', justifyContent: 'center' }} className="hidden-mobile">
+          {/* Desktop Nav — stretches to fill center, links centered within */}
+          <nav style={{ flex: 1, display: 'flex', gap: '32px', alignItems: 'center', justifyContent: 'center' }} className="hidden-mobile">
             {navLinks.map((link) => (
               <Link
                 key={link.href}
@@ -72,6 +74,7 @@ export default function Header() {
                   color: '#6B6560',
                   textDecoration: 'none',
                   transition: 'color 0.2s',
+                  whiteSpace: 'nowrap',
                 }}
                 onMouseEnter={(e) => (e.currentTarget.style.color = '#2C2C2A')}
                 onMouseLeave={(e) => (e.currentTarget.style.color = '#6B6560')}
@@ -81,8 +84,8 @@ export default function Header() {
             ))}
           </nav>
 
-          {/* Right actions */}
-          <div style={{ display: 'flex', alignItems: 'center', gap: '24px', flexShrink: 0 }}>
+          {/* Right actions — pinned right with fixed gap from nav */}
+          <div style={{ display: 'flex', alignItems: 'center', gap: '24px', flexShrink: 0, marginLeft: '48px' }}>
             {/* Quote Basket */}
             <Link
               href="/quote-basket"
