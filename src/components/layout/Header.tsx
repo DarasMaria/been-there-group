@@ -59,7 +59,7 @@ export default function Header() {
           </Link>
 
           {/* Desktop Nav */}
-          <nav style={{ display: 'flex', gap: '32px', alignItems: 'center' }} className="hidden-mobile">
+          <nav style={{ display: 'flex', gap: '40px', alignItems: 'center' }} className="hidden-mobile">
             {navLinks.map((link) => (
               <Link
                 key={link.href}
@@ -82,7 +82,7 @@ export default function Header() {
           </nav>
 
           {/* Right actions */}
-          <div style={{ display: 'flex', alignItems: 'center', gap: '16px' }}>
+          <div style={{ display: 'flex', alignItems: 'center', gap: '24px' }}>
             {/* Quote Basket */}
             <Link
               href="/quote-basket"
@@ -90,7 +90,7 @@ export default function Header() {
                 position: 'relative',
                 display: 'flex',
                 alignItems: 'center',
-                gap: '6px',
+                gap: '8px',
                 color: '#2C2C2A',
                 textDecoration: 'none',
                 fontSize: '12px',
